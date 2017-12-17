@@ -1,0 +1,27 @@
+<template>
+				<div class="jumbotron">
+						<center><h2>Edit the Photo ${photoObj2.photoName}</h2></center>
+		<center>
+			<br>	<br>	<br>
+			<div class="card" style="width:800px">
+		<div class="card-body">
+			  <label for="photoInput"> Photo Name *</label>
+			  <input value.bind="photoObj2.photoName" type="text" class="form-control" id="photoNameInput" aria-describedby="photoHelp" 
+				placeholder="Enter photo name"> 
+		</div>
+        <div>
+            <label for="descriptionInput">Description</label>
+            <textarea value.bind="photoObj2.photoDes" type="text" class="form-control" 
+			id="photoDesInput" aria-describedby="photoDescriptionHelp" 
+			placeholder="Enter Description for Photo"></textarea>
+        </div>
+  <center>
+	</div>
+    <br>
+    <button click.trigger="saveEditedPhoto()" class="btn btn-primary topMargin">Save</button>
+    <button click.trigger="back2()"type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-arrow-left"></span> Back to Photo List
+		</button>
+	</div>
+</template>
+    

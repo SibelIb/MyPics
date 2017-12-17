@@ -1,0 +1,8 @@
+<template>
+     <div class="jumbotron">
+        <h2> ${user.firstName}'s Photo Galleries</h2> 
+     </div>           
+     <compose show.bind="showGallery" view="./components/galleryList.html"></compose>
+     <compose show.bind="!showGallery" view="./components/createGallery.html"></compose>              
+</template>
+        

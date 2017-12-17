@@ -1,0 +1,80 @@
+<template>
+        <div class="jumbotron">
+     <center>
+        <h2>Photos in the ${gallery.gallery} Gallery</h2>
+    </center>
+    <br>	<br>	<br>
+<center>  
+        
+ <div class="container">
+        <div show.bind="!photo.photoArray.length">
+                <h3>You don't have any photos in this gallery</h3>
+        </div>
+      
+              <div show.bind="gallery.galleryArray.length"></div>		
+                                <div class="table-responsive">
+                                        <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Photo</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                         <th>File</th>
+                                        <th>Date Uploaded</th>
+                                        <th>Edit | Delete</th>				
+                                    </tr>
+                                </thead>
+                                <tbody>
+                               
+                                  
+                    
+                        <div show.bind="photo.photoArray.length">		
+                             
+                            <tr class repeat.for = "photo of photo.photoArray">
+                                       
+                          <th><a href = "/uploads/${photo.galleryId}/${photo.file.filename}" target ="_blank"><img src ="/uploads/${photo.galleryId}/${photo.file.filename}" style="width:100px; height: 100px;"></a></th> 
+                              
+                               <td>${photo.photoName}</td>
+                                 <td>${photo.photoDes}</td> 
+                                 <td>${photo.file.originalName}</td>
+                                <td> ${photo.dateUploaded | dateFormat}</td> 
+                                    
+                                  <td>      
+                            <i click.trigger="editPhoto(photo)" class="fa fa-pencil rightMargin" aria-hidden="true"></i> |
+                            <i click.trigger="deletePhoto(photo)"class="fa fa-trash rightMargin" aria-hidden="true"></i>
+                            
+                                                    </td>										
+                                    </tr>
+                                </tbody>
+                            </table>
+                       
+                   
+                    
+                       
+                                <ul>
+                                        <li repeat.for="file of filesToUpload" class="list-group-item">
+                                                ${file.name}<span click.delegate="removeFile($index)" 
+                                                class="pull-right"><i class="fa fa-trash" aria-hidden="true">
+                                                </i></span></li>
+                                </ul>
+                           
+                            
+                                <br>  
+                             <label class="btn btn-secondary">
+                                Upload Photos&hellip; <input type="file" 
+                                    style="display: none;" 
+                                    change.delegate="changeFiles()" files.bind="files">
+                            </label>
+                        </center>
+                            <br>   
+                            <button type="button" class="btn btn-primary btn-md" click.trigger="savePhoto()" class="btn btn-primary topMargin">Save</button>
+                            <button click.trigger="back()"type="button" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-arrow-left"></span> Back to Gallery List
+                            </button>
+                        </center>                                
+                        <br>     <br>    <br>   <br>   <br>  
+                                </div>
+                            </div>    
+                        </div>
+                   
+</template>

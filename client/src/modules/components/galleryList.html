@@ -1,0 +1,55 @@
+ <template> 
+			<center>
+				<div class="container">
+						<div show.bind="!gallery.galleryArray.length">
+								<h3>You don't have any photo galleries</h3>
+							</div>
+					<span class="lefttMargin  pull-left">						
+							<button type="button" class= "btn-outline-primary btn-lg" click.trigger="createGallery()">+ Add a Gallery</button>
+					</span>	
+					<br>
+	</div>
+	</div>
+	</center>
+	      <center>
+			<div class="container">
+			<div show.bind="gallery.galleryArray.length"></div>		
+					<div class="table-responsive">
+							<table class="table">
+					<thead>
+						<tr>
+							<th>Gallery</th>
+							 <th>Description</th>
+							<th>Date Created</th>
+							<th>Edit | Delete</th>					
+						</tr>
+					</thead>
+					<tbody>
+						<tr class repeat.for = "gallery of gallery.galleryArray">
+						<th><button click.trigger="showGalleryOrAdd(gallery)" class="btn btn-link" >${gallery.gallery}</button></th>
+						<td>${gallery.description}</td> 
+						<td>${gallery.dateCreated | dateFormat}</td>	
+						<td>
+				<i click.trigger="editGallery(gallery)" class="fa fa-pencil rightMargin" aria-hidden="true"></i> |
+				<i click.trigger="deleteGallery(gallery)"class="fa fa-trash rightMargin" aria-hidden="true"></i>
+						</td>												
+						</tr>
+					</tbody>
+				</table>
+			</div>
+				
+			<br><br>
+			<span class="centertMargin  pull-center">
+					<button type="button" class="btn btn-primary btn-md"  click.trigger="logout()">Logout</button>
+				</span>
+			</div>
+			
+		</div>
+		</center>
+	
+			
+</template>		
+		
+
+
+        

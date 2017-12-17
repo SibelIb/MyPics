@@ -1,0 +1,26 @@
+	<template>	
+				<center><div class="card" style="width:800px">
+						<div class="card-body">
+							<label for="galleryInput"> Gallery Name *</label>
+							<input value.bind="galleryObj.gallery" type="text" class="form-control" id="galleryInput" aria-describedby="galleryHelp" 
+							placeholder="Enter gallery name">
+							<small id="galleryHelp" class="form-text text-muted">
+									A short name for your photo gallery</small>
+					 </div>
+			        <div>
+			            <label for="descriptionInput">Description</label>
+			            <textarea value.bind="galleryObj.description" type="text" class="form-control" 
+						id="descriptionInput" aria-describedby="descriptionHelp" 
+						placeholder="Enter description"></textarea>
+						<small id="galleryHelp" class="form-text text-muted">
+								A description for your photo gallery</small>
+			        </div>
+			<center></div>
+			<br>
+			<button click.trigger="saveGallery()" class="btn btn-primary">Save Gallery</button>
+			<button click.trigger="back()"type="button" class="btn btn-primary">
+      <span class="glyphicon glyphicon-arrow-left"></span> Back to Gallery List
+			</button>
+			</div>
+</template>
+							
